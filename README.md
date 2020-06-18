@@ -1,14 +1,15 @@
 # C++ Starter project
+[![](https://github.com/DavidJourdan/cmake-starter-project/workflows/Build/badge.svg)](https://github.com/DavidJourdan/cmake-starter-project/actions)
 
 Uses CMake, Catch2 for unit tests, and optionally Eigen if you uncomment the corresponding lines in starter.cmake
+
+This template also supports CI with github actions (see .github/workflow/build.yml)
 
 ## Build instructions
 
 ``` 
-mkdir build
-cd build
-cmake ..
-make
+cmake -Bbuild 
+cmake --build build
 ```
 
-And you can then run the example project in ``` example/example ``` and the unit tests in ``` tests/test_example ```
+And you can then run the example project in ``` build/example/example ``` and the unit tests in ``` build/tests/test_example ```
