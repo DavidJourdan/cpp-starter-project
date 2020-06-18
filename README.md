@@ -1,5 +1,5 @@
 # C++ Starter project
-[![](https://github.com/DavidJourdan/cmake-starter-project/workflows/Build/badge.svg)](https://github.com/DavidJourdan/cmake-starter-project/actions)
+[![](https://github.com/DavidJourdan/cpp-starter-project/workflows/Build/badge.svg)](https://github.com/DavidJourdan/cpp-starter-project/actions)
 
 Uses CMake, Catch2 for unit tests, and optionally Eigen if you uncomment the corresponding lines in starter.cmake
 
