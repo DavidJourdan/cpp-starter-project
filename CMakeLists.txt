@@ -10,10 +10,12 @@ else()
 endif()
 
 # Build tests
-option(BUILD_TESTS    "Build unit test"  ${TOPLEVEL_PROJECT})
+option(BUILD_TESTS    "Build unit test"  OFF)
 
 # Build example project
-option(BUILD_EXAMPLE  "Build example project"  ${TOPLEVEL_PROJECT})
+if(${TOPLEVEL_PROJECT} AND NOT ${BUILD_TESTS})
+    option(BUILD_EXAMPLE  "Build example project"  ON)
+endif()
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/cmake)
 

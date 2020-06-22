@@ -1,3 +1,5 @@
+# Try building on both Linux and macOS platforms
+
 name: Build
 
 on:
@@ -7,9 +9,6 @@ on:
   pull_request:
     branches:
       - master
-
-env:
-  CTEST_OUTPUT_ON_FAILURE: ON
 
 jobs:
   ####################
@@ -33,18 +32,16 @@ jobs:
 
       - name: Dependencies (Linux)
         if: runner.os == 'Linux'
-        run: sudo apt install libeigen3-dev
+        run: sudo apt install libeigen3-dev coreutils
       - name: Dependencies (macOS)
         if: runner.os == 'macOS'
-        run: brew install eigen
+        run: brew install eigen coreutils
 
       - name: Configure
         run:  cmake -Bbuild -DCMAKE_BUILD_TYPE=Release
 
       - name: Build
-        run: cmake --build build --config Release -j4
+        run: cmake --build build --config Release -j $(nproc)
 
-      - name: Tests
-        run:  |
-          cd build
-          ctest -C Release
+      - name: Run
+        run:  build/example/example
